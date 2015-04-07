@@ -19,6 +19,7 @@ import gr.peustr.openhawking.core.guicomponents.ActionPanel;
 import com.gtranslate.Audio;
 import com.gtranslate.Language;
 import gr.peustr.openhawking.core.guicomponents.ResourceFrame;
+import java.awt.Color;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -62,11 +63,12 @@ public class Menu extends ResourceFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OpenHawking");
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(240, 241, 238));
 
+        inputText.setBackground(java.awt.Color.white);
         inputText.setFont(inputText.getFont().deriveFont(inputText.getFont().getStyle() & ~java.awt.Font.BOLD, 30));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new java.awt.Color(240, 241, 238));
         contentPane.setLayout(new java.awt.GridLayout(3, 4));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,6 +98,7 @@ public class Menu extends ResourceFrame {
     private void initCustomComponents() {
         audio = Audio.getInstance();
         actionPanels = new ArrayList<>();
+        getContentPane().setBackground(Color.decode("#333332"));
         SimpleActionPanel p1 = new SimpleActionPanel(this, "Α - Ζ", new String[]{"α", "β", "γ", "δ", "ε", "ζ"}) {
 
             @Override

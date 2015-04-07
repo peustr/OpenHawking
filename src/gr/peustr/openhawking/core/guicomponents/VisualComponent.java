@@ -19,7 +19,7 @@ import java.awt.Color;
 
 /**
  * Interface that is primarily needed because AWT and Swing classes don't share
- * an interface for changing background color.
+ * an interface for changing background and foreground color.
  *
  * @author peustr
  */
@@ -31,5 +31,12 @@ public interface VisualComponent {
      * @param c
      */
     public void setBackgroundColor(Color c);
+
+    /**
+     * Set the foreground color of the visual component.
+     *
+     * @param c
+     */
+    public void setForegroundColor(Color c);
 
 }

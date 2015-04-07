@@ -54,11 +54,13 @@ public class GUIDefaultSwitchingPolicy<T extends VisualComponent & ActionCompone
     @Override
     public void apply(List<T> components) {
         if (!this.components.isEmpty()) {
-            this.components.get(selectedIndex).setBackgroundColor(Color.white);
+            this.components.get(selectedIndex).setBackgroundColor(Color.decode("#F0F1EE"));
+            this.components.get(selectedIndex).setForegroundColor(Color.decode("#4C4C4C")); // RGB: 76, 76, 76 - GUI Builder default
         }
         this.components = components;
         selectedIndex = 0;
-        this.components.get(selectedIndex).setBackgroundColor(Color.orange);
+        this.components.get(selectedIndex).setBackgroundColor(Color.decode("#FB6964"));
+        this.components.get(selectedIndex).setForegroundColor(Color.decode("#F0F1EE"));
     }
 
     @Override
@@ -68,12 +70,14 @@ public class GUIDefaultSwitchingPolicy<T extends VisualComponent & ActionCompone
 
     @Override
     public void next() {
-        components.get(selectedIndex).setBackgroundColor(Color.white);
+        components.get(selectedIndex).setBackgroundColor(Color.decode("#F0F1EE"));
+        components.get(selectedIndex).setForegroundColor(Color.decode("#4C4C4C")); // RGB: 76, 76, 76 - GUI Builder default
         selectedIndex++;
         if (selectedIndex >= components.size()) {
             selectedIndex = 0;
         }
-        components.get(selectedIndex).setBackgroundColor(Color.orange);
+        components.get(selectedIndex).setBackgroundColor(Color.decode("#FB6964"));
+        components.get(selectedIndex).setForegroundColor(Color.decode("#F0F1EE"));
     }
 
 }

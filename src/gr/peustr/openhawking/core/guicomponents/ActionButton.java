@@ -33,4 +33,9 @@ public abstract class ActionButton extends JButton implements VisualComponent, A
         super.setBackground(c);
     }
 
+    @Override
+    public void setForegroundColor(Color c) {
+        super.setForeground(c);
+    }
+
 }

@@ -63,12 +63,13 @@ public abstract class SimpleActionPanel extends ActionPanel {
         textLabel = new javax.swing.JLabel();
         contentPane = new javax.swing.JPanel();
 
-        setBackground(java.awt.Color.white);
+        setBackground(new java.awt.Color(240, 241, 238));
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.darkGray));
 
         textLabel.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         textLabel.setText("jLabel1");
 
-        contentPane.setBackground(java.awt.Color.white);
+        contentPane.setBackground(new java.awt.Color(240, 241, 238));
         contentPane.setLayout(new java.awt.GridLayout(2, 3, 5, 5));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -105,7 +106,8 @@ public abstract class SimpleActionPanel extends ActionPanel {
                 }
 
             };
-            jb.setBackgroundColor(Color.white);
+            jb.setBackgroundColor(Color.decode("#F0F1EE"));
+            jb.setForegroundColor(Color.decode("#4C4C4C"));
             jb.setFont(jb.getFont().deriveFont(jb.getFont().getStyle() & ~java.awt.Font.BOLD, 30));
             buttons.add(jb);
             contentPane.add(jb);
@@ -114,6 +116,17 @@ public abstract class SimpleActionPanel extends ActionPanel {
 
     public List<ActionButton> getActionButtons() {
         return buttons;
+    }
+
+    @Override
+    public void setBackgroundColor(Color c) {
+        setBackground(c);
+        contentPane.setBackground(c);
+    }
+
+    @Override
+    public void setForegroundColor(Color c) {
+        textLabel.setForeground(c);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

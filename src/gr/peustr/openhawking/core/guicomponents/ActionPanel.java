@@ -29,4 +29,9 @@ public abstract class ActionPanel extends JPanel implements VisualComponent, Act
         super.setBackground(c);
     }
 
+    @Override
+    public void setForegroundColor(Color c) {
+        super.setForeground(c);
+    }
+
 }
