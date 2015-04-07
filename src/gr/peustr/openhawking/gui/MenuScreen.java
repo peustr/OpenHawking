@@ -17,7 +17,7 @@ package gr.peustr.openhawking.gui;
 
 import com.gtranslate.Audio;
 import com.gtranslate.Language;
-import gr.peustr.openhawking.core.DefaultSwitchingPolicy;
+import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -95,28 +95,28 @@ public class MenuScreen extends JFrame {
 
             @Override
             public void act() {
-                DefaultSwitchingPolicy.getInstance().apply(getActionButtons());
+                GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
             }
         };
         SimpleActionPanel p2 = new SimpleActionPanel(this, "Η - Μ", new String[]{"η", "θ", "ι", "κ", "λ", "μ"}) {
 
             @Override
             public void act() {
-                DefaultSwitchingPolicy.getInstance().apply(getActionButtons());
+                GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
             }
         };
         SimpleActionPanel p3 = new SimpleActionPanel(this, "Ν - Σ", new String[]{"ν", "ξ", "ο", "π", "ρ", "σ"}) {
 
             @Override
             public void act() {
-                DefaultSwitchingPolicy.getInstance().apply(getActionButtons());
+                GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
             }
         };
         SimpleActionPanel p4 = new SimpleActionPanel(this, "Τ - Ω", new String[]{"τ", "υ", "φ", "χ", "ψ", "ω"}) {
 
             @Override
             public void act() {
-                DefaultSwitchingPolicy.getInstance().apply(getActionButtons());
+                GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
             }
         };
         SimpleActionPanel p5 = new SimpleActionPanel(this, "ΝΑΙ", new String[]{"ΝΑΙ"}) {
@@ -207,7 +207,7 @@ public class MenuScreen extends JFrame {
         actionPanels.add(p7);
         actionPanels.add(p8);
         actionPanels.add(p9);
-        DefaultSwitchingPolicy.getInstance().apply(actionPanels);
+        GUIDefaultSwitchingPolicy.getInstance().apply(actionPanels);
         pack();
     }
 

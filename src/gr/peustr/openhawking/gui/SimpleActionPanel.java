@@ -15,7 +15,7 @@
  */
 package gr.peustr.openhawking.gui;
 
-import gr.peustr.openhawking.core.DefaultSwitchingPolicy;
+import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +99,7 @@ public abstract class SimpleActionPanel extends ActionPanel {
                 @Override
                 public void act() {
                     parent.getInputText().setText(parent.getInputText().getText() + curText);
-                    DefaultSwitchingPolicy.getInstance().apply(parent.getActionPanels());
+                    GUIDefaultSwitchingPolicy.getInstance().apply(parent.getActionPanels());
                 }
 
             };

@@ -18,11 +18,18 @@ package gr.peustr.openhawking.gui;
 import java.awt.Color;
 
 /**
+ * Interface that is primarily needed because AWT and Swing classes don't share
+ * an interface for changing background color.
  *
  * @author peustr
  */
 public interface VisualComponent {
 
+    /**
+     * Set the background color of the visual component.
+     *
+     * @param c
+     */
     public void setBackgroundColor(Color c);
 
 }

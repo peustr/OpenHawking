@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  *
  * @author peustr
  */
-public abstract class ActionPanel extends JPanel implements VisualActionComponent {
+public abstract class ActionPanel extends JPanel implements VisualComponent, ActionComponent {
 
     @Override
     public void setBackgroundColor(Color c) {

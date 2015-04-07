@@ -15,7 +15,7 @@
  */
 package gr.peustr.openhawking;
 
-import gr.peustr.openhawking.core.DefaultSwitchingPolicy;
+import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
 import gr.peustr.openhawking.gui.MenuScreen;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
@@ -50,9 +50,9 @@ public class Demo {
         @Override
         public void nativeMouseClicked(NativeMouseEvent nme) {
             if (nme.getButton() == NativeMouseEvent.BUTTON1) {
-                DefaultSwitchingPolicy.getInstance().select();
+                GUIDefaultSwitchingPolicy.getInstance().select();
             } else if (nme.getButton() == NativeMouseEvent.BUTTON2) {
-                DefaultSwitchingPolicy.getInstance().next();
+                GUIDefaultSwitchingPolicy.getInstance().next();
             }
         }
 

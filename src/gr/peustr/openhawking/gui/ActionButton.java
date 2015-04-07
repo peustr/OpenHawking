@@ -22,7 +22,7 @@ import javax.swing.JButton;
  *
  * @author peustr
  */
-public abstract class ActionButton extends JButton implements VisualActionComponent {
+public abstract class ActionButton extends JButton implements VisualComponent, ActionComponent {
 
     public ActionButton(String str) {
         super(str);

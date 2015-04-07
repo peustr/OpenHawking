@@ -21,6 +21,9 @@ package gr.peustr.openhawking.gui;
  */
 public interface ActionComponent {
 
+    /**
+     * Perform a certain action when called.
+     */
     public abstract void act();
 
 }
