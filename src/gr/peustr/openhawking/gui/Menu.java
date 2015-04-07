@@ -190,16 +190,19 @@ public class Menu extends ResourceFrame {
 
             @Override
             public void act() {
-                InputStream sound = null;
-                try {
-                    sound = audio.getAudio(inputText.getText(), Language.GREEK);
-                } catch (IOException ex) {
-                    ex.printStackTrace(System.err);
-                }
-                try {
-                    audio.play(sound);
-                } catch (JavaLayerException ex) {
-                    ex.printStackTrace(System.err);
+                if (!inputText.getText().replaceAll("//s+", "").isEmpty()) {
+                    InputStream sound = null;
+                    try {
+                        sound = audio.getAudio(inputText.getText(), Language.GREEK);
+                    } catch (IOException ex) {
+                        ex.printStackTrace(System.err);
+                    }
+                    try {
+                        audio.play(sound);
+                    } catch (JavaLayerException ex) {
+                        ex.printStackTrace(System.err);
+                    }
+
                 }
             }
 
