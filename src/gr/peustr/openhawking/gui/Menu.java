@@ -15,22 +15,26 @@
  */
 package gr.peustr.openhawking.gui;
 
+import gr.peustr.openhawking.core.guicomponents.ActionPanel;
 import com.gtranslate.Audio;
 import com.gtranslate.Language;
-import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
+import gr.peustr.openhawking.core.guicomponents.ResourceFrame;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
 import javazoom.jl.decoder.JavaLayerException;
+import org.jnativehook.keyboard.NativeKeyListener;
+import org.jnativehook.mouse.NativeMouseEvent;
+import org.jnativehook.mouse.NativeMouseInputListener;
+import org.jnativehook.mouse.NativeMouseListener;
 
 /**
+ * An application-specific implementation of the ResourceFrame abstraction.
  *
  * @author peustr
  */
-public class MenuScreen extends JFrame {
+public class Menu extends ResourceFrame {
 
     private Audio audio;
     private List<ActionPanel> actionPanels;
@@ -38,7 +42,8 @@ public class MenuScreen extends JFrame {
     /**
      * Creates new form MenuScreen
      */
-    public MenuScreen() {
+    public Menu() {
+        super();
         initComponents();
         initCustomComponents();
     }
@@ -211,12 +216,82 @@ public class MenuScreen extends JFrame {
         pack();
     }
 
-    public JTextField getInputText() {
-        return inputText;
-    }
-
+    @Override
     public List<ActionPanel> getActionPanels() {
         return actionPanels;
+    }
+
+    @Override
+    public String getTextResource() {
+        return inputText.getText();
+    }
+
+    @Override
+    public void setTextResource(String resource) {
+        inputText.setText(resource);
+    }
+
+    @Override
+    protected NativeMouseListener getNativeMouseListener() {
+        return new NativeMouseInputListener() {
+
+            private static final long MILLI_THRESHOLD = 1000l;
+
+            private long clickTimer = 0l;
+
+            @Override
+            public void nativeMouseClicked(NativeMouseEvent nme) {
+            }
+
+            @Override
+            public void nativeMousePressed(NativeMouseEvent nme) {
+                clickTimer = System.currentTimeMillis();
+            }
+
+            @Override
+            public void nativeMouseReleased(NativeMouseEvent nme) {
+                // Long time press
+                if (System.currentTimeMillis() - clickTimer > MILLI_THRESHOLD) {
+                    // Left click
+                    if (nme.getButton() == NativeMouseEvent.BUTTON1) {
+                        if (getTextResource().length() > 0) {
+                            setTextResource(getTextResource().substring(0, getTextResource().length() - 1));
+                        }
+                    } // Right click 
+                    else if (nme.getButton() == NativeMouseEvent.BUTTON2) {
+                        GUIDefaultSwitchingPolicy.getInstance().apply(actionPanels);
+                    }
+                } // Short time press
+                else {
+                    //Left click
+                    if (nme.getButton() == NativeMouseEvent.BUTTON1) {
+                        GUIDefaultSwitchingPolicy.getInstance().select();
+                    } // Right click
+                    else if (nme.getButton() == NativeMouseEvent.BUTTON2) {
+                        GUIDefaultSwitchingPolicy.getInstance().next();
+                    }
+                }
+                resetTimer();
+            }
+
+            @Override
+            public void nativeMouseMoved(NativeMouseEvent nme) {
+            }
+
+            @Override
+            public void nativeMouseDragged(NativeMouseEvent nme) {
+            }
+
+            private void resetTimer() {
+                clickTimer = 0;
+            }
+
+        };
+    }
+
+    @Override
+    protected NativeKeyListener getNativeKeyListener() {
+        return null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,16 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.peustr.openhawking.gui;
+package gr.peustr.openhawking.core.guicomponents;
 
 import java.awt.Color;
-import javax.swing.JPanel;
+import javax.swing.JButton;
 
 /**
  *
  * @author peustr
  */
-public abstract class ActionPanel extends JPanel implements VisualComponent, ActionComponent {
+public abstract class ActionButton extends JButton implements VisualComponent, ActionComponent {
+
+    public ActionButton(String str) {
+        super(str);
+    }
 
     @Override
     public void setBackgroundColor(Color c) {

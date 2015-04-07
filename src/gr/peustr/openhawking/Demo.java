@@ -15,14 +15,13 @@
  */
 package gr.peustr.openhawking;
 
-import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
-import gr.peustr.openhawking.gui.MenuScreen;
+import gr.peustr.openhawking.core.guicomponents.ResourceFrame;
+import gr.peustr.openhawking.gui.Menu;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
-import org.jnativehook.mouse.NativeMouseEvent;
-import org.jnativehook.mouse.NativeMouseInputListener;
 
 /**
+ * Main function that runs the application GUI (MenuScreen).
  *
  * @author peustr
  */
@@ -34,48 +33,11 @@ public class Demo {
         } catch (NativeHookException ex) {
             ex.printStackTrace(System.err);
         }
-        GlobalScreen gs = GlobalScreen.getInstance();
-        gs.addNativeMouseListener(new GlobalMouseListener());
-        MenuScreen ms = new MenuScreen();
-        ms.setLocationRelativeTo(null);
-        ms.setAlwaysOnTop(true);
-        ms.setVisible(true);
-    }
-
-    private static class GlobalMouseListener implements NativeMouseInputListener {
-
-        public GlobalMouseListener() {
-        }
-
-        @Override
-        public void nativeMouseClicked(NativeMouseEvent nme) {
-            if (nme.getButton() == NativeMouseEvent.BUTTON1) {
-                GUIDefaultSwitchingPolicy.getInstance().select();
-            } else if (nme.getButton() == NativeMouseEvent.BUTTON2) {
-                GUIDefaultSwitchingPolicy.getInstance().next();
-            }
-        }
-
-        @Override
-        public void nativeMousePressed(NativeMouseEvent nme) {
-
-        }
-
-        @Override
-        public void nativeMouseReleased(NativeMouseEvent nme) {
-
-        }
-
-        @Override
-        public void nativeMouseMoved(NativeMouseEvent nme) {
-
-        }
-
-        @Override
-        public void nativeMouseDragged(NativeMouseEvent nme) {
-
-        }
-
+        // Create a new application instance
+        ResourceFrame rf = new Menu();
+        rf.setLocationRelativeTo(null);
+        rf.setAlwaysOnTop(true);
+        rf.setVisible(true);
     }
 
 }

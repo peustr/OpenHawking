@@ -13,24 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.peustr.openhawking.gui;
-
-import java.awt.Color;
-import javax.swing.JButton;
+package gr.peustr.openhawking.core.guicomponents;
 
 /**
  *
  * @author peustr
  */
-public abstract class ActionButton extends JButton implements VisualComponent, ActionComponent {
+public interface ActionComponent {
 
-    public ActionButton(String str) {
-        super(str);
-    }
-
-    @Override
-    public void setBackgroundColor(Color c) {
-        super.setBackground(c);
-    }
+    /**
+     * Perform a certain action when called.
+     */
+    public abstract void act();
 
 }

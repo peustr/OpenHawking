@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.peustr.openhawking.core;
+package gr.peustr.openhawking.gui;
 
-import gr.peustr.openhawking.gui.ActionComponent;
-import gr.peustr.openhawking.gui.VisualComponent;
+import gr.peustr.openhawking.core.SwitchingPolicy;
+import gr.peustr.openhawking.core.guicomponents.ActionComponent;
+import gr.peustr.openhawking.core.guicomponents.VisualComponent;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;

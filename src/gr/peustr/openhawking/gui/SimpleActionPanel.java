@@ -15,7 +15,9 @@
  */
 package gr.peustr.openhawking.gui;
 
-import gr.peustr.openhawking.core.GUIDefaultSwitchingPolicy;
+import gr.peustr.openhawking.core.guicomponents.ActionPanel;
+import gr.peustr.openhawking.core.guicomponents.ActionButton;
+import gr.peustr.openhawking.core.guicomponents.ResourceFrame;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import java.util.List;
  */
 public abstract class SimpleActionPanel extends ActionPanel {
 
-    private MenuScreen parent;
+    private ResourceFrame parent;
 
     private String labelText;
     private String[] buttonTexts;
@@ -40,7 +42,7 @@ public abstract class SimpleActionPanel extends ActionPanel {
      * @param labelText
      * @param buttonTexts
      */
-    public SimpleActionPanel(MenuScreen parent, String labelText, String[] buttonTexts) {
+    public SimpleActionPanel(Menu parent, String labelText, String[] buttonTexts) {
         this.parent = parent;
         this.labelText = labelText;
         this.buttonTexts = buttonTexts;
@@ -98,7 +100,7 @@ public abstract class SimpleActionPanel extends ActionPanel {
             ActionButton jb = new ActionButton(curText) {
                 @Override
                 public void act() {
-                    parent.getInputText().setText(parent.getInputText().getText() + curText);
+                    parent.setTextResource((parent.getTextResource() + curText));
                     GUIDefaultSwitchingPolicy.getInstance().apply(parent.getActionPanels());
                 }
 

@@ -13,23 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.peustr.openhawking.gui;
+package gr.peustr.openhawking.core.guicomponents;
 
 import java.awt.Color;
+import javax.swing.JPanel;
 
 /**
- * Interface that is primarily needed because AWT and Swing classes don't share
- * an interface for changing background color.
  *
  * @author peustr
  */
-public interface VisualComponent {
+public abstract class ActionPanel extends JPanel implements VisualComponent, ActionComponent {
 
-    /**
-     * Set the background color of the visual component.
-     *
-     * @param c
-     */
-    public void setBackgroundColor(Color c);
+    @Override
+    public void setBackgroundColor(Color c) {
+        super.setBackground(c);
+    }
 
 }
