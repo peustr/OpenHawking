@@ -124,7 +124,22 @@ public class Menu extends ResourceFrame {
                 GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
             }
         };
-        SimpleActionPanel p5 = new SimpleActionPanel(this, "ΝΑΙ", new String[]{"ΝΑΙ"}) {
+        SimpleActionPanel p5 = new SimpleActionPanel(this, "ΤΟΝΙΣΜΕΝΑ", new String[]{"ά", "έ", "ή", "ί", "ό", "ώ"}) {
+
+            @Override
+            public void act() {
+                GUIDefaultSwitchingPolicy.getInstance().apply(getActionButtons());
+            }
+        };
+        SimpleActionPanel p6 = new SimpleActionPanel(this, "ΚΕΝΟ", new String[]{"ΚΕΝΟ"}) {
+
+            @Override
+            public void act() {
+                inputText.setText(inputText.getText() + " ");
+            }
+
+        };
+        SimpleActionPanel p7 = new SimpleActionPanel(this, "ΝΑΙ", new String[]{"ΝΑΙ"}) {
 
             @Override
             public void act() {
@@ -142,7 +157,7 @@ public class Menu extends ResourceFrame {
             }
 
         };
-        SimpleActionPanel p6 = new SimpleActionPanel(this, "ΟΧΙ", new String[]{"ΟΧΙ"}) {
+        SimpleActionPanel p8 = new SimpleActionPanel(this, "ΟΧΙ", new String[]{"ΟΧΙ"}) {
 
             @Override
             public void act() {
@@ -160,15 +175,7 @@ public class Menu extends ResourceFrame {
             }
 
         };
-        SimpleActionPanel p7 = new SimpleActionPanel(this, "ΚΕΝΟ", new String[]{"ΚΕΝΟ"}) {
-
-            @Override
-            public void act() {
-                inputText.setText(inputText.getText() + " ");
-            }
-
-        };
-        SimpleActionPanel p8 = new SimpleActionPanel(this, "ΚΑΘΑΡΙΣΜΑ", new String[]{"ΚΑΘΑΡΙΣΜΑ"}) {
+        SimpleActionPanel p9 = new SimpleActionPanel(this, "ΚΑΘΑΡΙΣΜΑ", new String[]{"ΚΑΘΑΡΙΣΜΑ"}) {
 
             @Override
             public void act() {
@@ -176,7 +183,7 @@ public class Menu extends ResourceFrame {
             }
 
         };
-        SimpleActionPanel p9 = new SimpleActionPanel(this, "ΦΩΝΗ", new String[]{"ΦΩΝΗ"}) {
+        SimpleActionPanel p10 = new SimpleActionPanel(this, "ΦΩΝΗ", new String[]{"ΦΩΝΗ"}) {
 
             @Override
             public void act() {
@@ -203,6 +210,7 @@ public class Menu extends ResourceFrame {
         contentPane.add(p7);
         contentPane.add(p8);
         contentPane.add(p9);
+        contentPane.add(p10);
         actionPanels.add(p1);
         actionPanels.add(p2);
         actionPanels.add(p3);
@@ -212,6 +220,7 @@ public class Menu extends ResourceFrame {
         actionPanels.add(p7);
         actionPanels.add(p8);
         actionPanels.add(p9);
+        actionPanels.add(p10);
         GUIDefaultSwitchingPolicy.getInstance().apply(actionPanels);
         pack();
     }
